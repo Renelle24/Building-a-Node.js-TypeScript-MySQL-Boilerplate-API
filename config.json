@@ -1,0 +1,19 @@
+{
+    "database": {
+        "host": "localhost",
+        "port": 3306,
+        "user": "root",
+        "password": "root1234",
+        "database": "node_mysql_api"
+    },
+    "secret": "SUPER_SECRET_KEY_REPLACE_ME_IN_PRODUCTION",
+    "emailFrom": "info@my-node-api.com",
+    "smtpOptions": {
+        "host": "smtp.ethereal.email",
+        "port": 587,
+        "auth": {
+            "user": "hyman.herzog59@ethereal.email",
+            "pass": "ZmaVNd6bwQg1EJ1Rkw"
+        }
+    }
+}
