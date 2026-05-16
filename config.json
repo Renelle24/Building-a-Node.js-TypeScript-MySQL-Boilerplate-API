@@ -1,13 +1,13 @@
 {
     "database": {
-        "host": "localhost",
+        "host": "153.92.15.31",
         "port": 3306,
-        "user": "root",
-        "password": "root1234",
-        "database": "node_mysql_api"
+        "user": "u875409848_alemios",
+        "password": "2qW^sUg=M",
+        "database": "u875409848_alemios"
     },
     "secret": "SUPER_SECRET_KEY_REPLACE_ME_IN_PRODUCTION",
-    "emailFrom": "info@my-node-api.com",
+    "emailFrom": "no-reply@ipt-2026-frontend.onrender.com",
     "smtpOptions": {
         "host": "smtp.ethereal.email",
         "port": 587,
