@@ -7,13 +7,14 @@
         "database": "u875409848_alemios"
     },
     "secret": "SUPER_SECRET_KEY_REPLACE_ME_IN_PRODUCTION",
-    "emailFrom": "villamoralemios123@gmail.com",
+    "emailFrom": "onboarding@resend.dev",
     "smtpOptions": {
-        "host": "smtp.gmail.com",
-        "port": 587,
+        "host": "smtp.resend.com",
+        "port": 2465,
+        "secure": true,
         "auth": {
-            "user": "villamoralemios123@gmail.com",
-            "pass": "ulwb aueh nqeo cvmf"
+            "user": "resend",
+            "pass": "re_D5Jpq2t5_EHpXTCvUXX5AvBekdKxWqzKT"
         }
     }
 }
