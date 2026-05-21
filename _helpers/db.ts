@@ -15,7 +15,10 @@ async function initialize() {
     const sequelize = new Sequelize(database, user, password, { 
         host, 
         dialect: 'mysql',
-        timezone: '+00:00'
+        timezone: '+08:00',
+        dialectOptions: {
+            timezone: '+08:00'
+        }
     });
     db.Account = accountModel(sequelize);
     db.RefreshToken = refreshTokenModel(sequelize);
