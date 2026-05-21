@@ -12,7 +12,11 @@ async function initialize() {
     const { host, port, user, password, database } = config.database;
     const connection = await mysql.createConnection({ host, port, user, password });
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
-    const sequelize = new Sequelize(database, user, password, { host, dialect: 'mysql' });
+    const sequelize = new Sequelize(database, user, password, { 
+        host, 
+        dialect: 'mysql',
+        timezone: '+00:00'
+    });
     db.Account = accountModel(sequelize);
     db.RefreshToken = refreshTokenModel(sequelize);
     db.Account.hasMany(db.RefreshToken, { onDelete: 'CASCADE' });
