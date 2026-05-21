@@ -4,7 +4,7 @@
   "description": "Node MySQL API",
   "main": "server.ts",
   "scripts": {
-    "build": "npx tsc",
+   "build": "npx tsc && cp swagger.yaml dist/swagger.yaml",
     "start": "node dist/server.js",
     "start:dev": "nodemon --exec npx ts-node ./server.ts"
   },

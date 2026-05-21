@@ -7,13 +7,13 @@
         "database": "u875409848_alemios"
     },
     "secret": "SUPER_SECRET_KEY_REPLACE_ME_IN_PRODUCTION",
-    "emailFrom": "no-reply@ipt-2026-frontend.onrender.com",
+    "emailFrom": "villamoralemios123@gmail.com",
     "smtpOptions": {
-        "host": "smtp.ethereal.email",
+        "host": "smtp.gmail.com",
         "port": 587,
         "auth": {
-            "user": "hyman.herzog59@ethereal.email",
-            "pass": "ZmaVNd6bwQg1EJ1Rkw"
+            "user": "villamoralemios123@gmail.com",
+            "pass": "ulwb aueh nqeo cvmf"
         }
     }
 }
