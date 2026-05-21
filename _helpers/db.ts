@@ -14,12 +14,7 @@ async function initialize() {
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
     const sequelize = new Sequelize(database, user, password, { 
         host, 
-        dialect: 'mysql',
-        timezone: 'Z',
-        dialectOptions: {
-            dateStrings: true,
-            typeCast: true
-        }
+        dialect: 'mysql'
     });
     db.Account = accountModel(sequelize);
     db.RefreshToken = refreshTokenModel(sequelize);
