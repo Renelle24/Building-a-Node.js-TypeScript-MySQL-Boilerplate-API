@@ -4,9 +4,9 @@
   "description": "Node MySQL API",
   "main": "server.ts",
   "scripts": {
-    "start": "npx ts-node ./server.ts",
-    "start:dev": "nodemon --exec ts-node ./server.ts"
-  },
+    "start": "node_modules/.bin/ts-node ./server.ts",
+    "start:dev": "nodemon --exec node_modules/.bin/ts-node ./server.ts"
+},
   "dependencies": {
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
