@@ -15,9 +15,10 @@ async function initialize() {
     const sequelize = new Sequelize(database, user, password, { 
         host, 
         dialect: 'mysql',
-        timezone: '+08:00',
+        timezone: 'Z',
         dialectOptions: {
-            timezone: '+08:00'
+            dateStrings: true,
+            typeCast: true
         }
     });
     db.Account = accountModel(sequelize);
