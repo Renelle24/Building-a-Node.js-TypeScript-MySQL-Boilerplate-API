@@ -239,7 +239,9 @@ function _delete(req: any, res: any, next: any) {                              /
 function setTokenCookie(res: any, token: any) {
     const cookieOptions = {
         httpOnly: true,
-        expires: new Date(Date.now() + 7*24*60*60*1000)                       // ✅ Fix 79: '724' → '7*24' (was missing '*')
-    };                                                                          // ✅ Fix 80: missing closing '};' for cookieOptions
-    res.cookie('refreshToken', token, cookieOptions);                          // ✅ Fix 81: removed stray space in 'res. cookie'
-}                                                                               // ✅ Fix 82: missing closing '}' for function
+        secure: true,
+        sameSite: 'none' as const,
+        expires: new Date(Date.now() + 7*24*60*60*1000)
+    };
+    res.cookie('refreshToken', token, cookieOptions);
+}
