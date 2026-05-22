@@ -2,7 +2,6 @@ import config from '../config.json';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
-import { Op } from 'sequelize';
 
 import sendEmail from '../_helpers/send-email';
 import db from '../_helpers/db';
@@ -113,7 +112,6 @@ async function forgotPassword({ email }: any, origin: any) {
     if (!account) return;
 
     account.resetToken = randomTokenString();
-    // Set expiry to 48 hours to avoid timezone issues
     account.resetTokenExpires = new Date(Date.now() + 48 * 60 * 60 * 1000);
 
     await account.save();
@@ -123,13 +121,16 @@ async function forgotPassword({ email }: any, origin: any) {
 
 async function validateResetToken({ token }: any) {
     const account = await db.Account.findOne({
-        where: {
-            resetToken: token,
-            resetTokenExpires: { [Op.gt]: new Date() }
-        }
+        where: { resetToken: token }
     });
 
     if (!account) throw 'Invalid token';
+
+    // Manual expiry check to avoid timezone issues
+    const now = Date.now();
+    const expires = new Date(account.resetTokenExpires).getTime();
+
+    if (now > expires) throw 'Token has expired';
 
     return account;
 }
