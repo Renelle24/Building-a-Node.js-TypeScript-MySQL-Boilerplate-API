@@ -46,16 +46,21 @@ function authenticate(req: any, res: any, next: any) {
 
 // ─── REFRESH TOKEN ───────────────────────────────────────────────────────────
 function refreshToken(req: any, res: any, next: any) {
-    const token = req.cookies.refreshToken;                                     // ✅ Fix 10: removed stray spaces in 'req. cookies. refreshToken'
+    const token = req.cookies.refreshToken;
     const ipAddress = req.ip;
-    accountService.refreshToken({ token, ipAddress })                          // ✅ Fix 11: removed stray space in 'accountService. refreshToken'
+
+    // Return 401 if no token cookie instead of crashing
+    if (!token) {
+        return res.status(401).json({ message: 'No refresh token' });
+    }
+
+    accountService.refreshToken({ token, ipAddress })
         .then(({ refreshToken, ...account }: any) => {
             setTokenCookie(res, refreshToken);
             res.json(account);
         })
         .catch(next);
-}                                                                               // ✅ Fix 12: missing closing '}' for function
-
+}
 // ─── REVOKE TOKEN ────────────────────────────────────────────────────────────
 function revokeTokenSchema(req: any, res: any, next: any) {
     const schema = Joi.object({
